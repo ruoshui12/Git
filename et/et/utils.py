@@ -3,7 +3,7 @@ import tempfile
 import datetime as dt
 from functools import total_ordering
 
-import xlwings
+import _wps
 
 try:
     import numpy as np
@@ -197,7 +197,7 @@ def process_image(image, width, height):
         return image, width, height
     elif mpl and isinstance(image, mpl.figure.Figure):
         image_type = 'mpl'
-    elif plotly_go and isinstance(image, plotly_go.Figure) and xlwings.PRO:
+    elif plotly_go and isinstance(image, plotly_go.Figure) and _wps.PRO:
         image_type = 'plotly'
     else:
         raise TypeError("Don't know what to do with that image object")
